@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey("space")) {
                 restart();
                 Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
             }
         }
     }
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         movement.enabled = false;
         scoreCounter.enabled = false;
         Time.timeScale = 0.3f;
+        Time.fixedDeltaTime = 0.0001f;
         deathLayer.enabled = true;
     }
 
