@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         var movement = FindObjectOfType<PlayerMovement>();
         var scoreCounter = FindObjectOfType<ScoreCounter>();
-        var deathLayer = FindObjectOfType<PostProcessLayer>();
+        var deathLayer = FindObjectOfType<Volume>();
 
         playDeathAudio();
         movement.enabled = false;
