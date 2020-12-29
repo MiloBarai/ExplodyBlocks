@@ -2,18 +2,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreCounter : MonoBehaviour
+
+namespace ExplodyBlocks.Assets.Scripts
 {
-
-    public Transform player;
-    public Text score;
-
-    // Update is called once per frame
-    void Update()
+    public class ScoreCounter : MonoBehaviour
     {
-        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
-        scoreManager.updateScore();
 
-        score.text = $"{Math.Round(scoreManager.CurrentScore)}";
+        public Transform player;
+        public Text score;
+
+        // Update is called once per frame
+        void Update()
+        {
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+            scoreManager.updateScore();
+
+            score.text = $"{Math.Round(scoreManager.CurrentScore)}";
+        }
     }
 }

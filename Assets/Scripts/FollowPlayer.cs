@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+namespace ExplodyBlocks.Assets.Scripts
 {
-
-    public Transform player;
-    public Vector3 playerOffset;
-
-    // Update is called once per frame
-    void Update()
+    public class FollowPlayer : MonoBehaviour
     {
-        transform.position = player.position + playerOffset;
+
+        public Transform player;
+        public Vector3 playerOffset;
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position = player.position + playerOffset;
+        }
     }
 }

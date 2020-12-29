@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
-public class PlayerCollition : MonoBehaviour
+namespace ExplodyBlocks.Assets.Scripts
 {
-    public PlayerMovement movement;
-    private AudioSource audioSource;
-
-    private void Start()
+    public class PlayerCollition : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.loop = true;
-    }
+        public PlayerMovement movement;
+        private AudioSource audioSource;
 
-    private void OnCollisionEnter(Collision collision)
-    {   
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+            audioSource.loop = true;
+        }
 
-        if (collision.collider.tag == "Obstacle") {
-            FindObjectOfType<GameManager>().gameOver();
+        private void OnCollisionEnter(Collision collision)
+        {
+
+            if (collision.collider.tag == "Obstacle")
+            {
+                FindObjectOfType<GameManager>().gameOver();
+            }
         }
     }
 }

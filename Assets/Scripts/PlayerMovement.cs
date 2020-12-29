@@ -1,35 +1,41 @@
 ﻿using UnityEngine;
-
-public class PlayerMovement : MonoBehaviour
+namespace ExplodyBlocks.Assets.Scripts
 {
-    public Rigidbody rb;
-    public float handlingSpeed = 500f;
-    public float wantedSpeed = 800f;
-    public float startingBoost = 800f;
-
-    private void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        rb.AddForce(0, 0, startingBoost);
-    }
+        public Rigidbody rb;
+        public float handlingSpeed = 500f;
+        public float wantedSpeed = 800f;
+        public float startingBoost = 800f;
 
-    // Fixed Update prefered for unity physics.
-    void FixedUpdate()
-    {
-        if (rb.velocity.z < wantedSpeed) {
-            Debug.Log($"Velocity z: {rb.velocity.z}");
-            rb.AddForce(0, 0, (wantedSpeed - rb.velocity.z) * Time.deltaTime);
+        private void Start()
+        {
+            rb.AddForce(0, 0, startingBoost);
         }
 
-        if ( Input.GetKey("d")) {
-            rb.AddForce(handlingSpeed * Time.deltaTime, 0, 0);
-        }
+        // Fixed Update prefered for unity physics.
+        void FixedUpdate()
+        {
+            if (rb.velocity.z < wantedSpeed)
+            {
+                Debug.Log($"Velocity z: {rb.velocity.z}");
+                rb.AddForce(0, 0, (wantedSpeed - rb.velocity.z) * Time.deltaTime);
+            }
 
-        if (Input.GetKey("a"))  {
-            rb.AddForce(-handlingSpeed * Time.deltaTime, 0, 0);
-        }
+            if (Input.GetKey("d"))
+            {
+                rb.AddForce(handlingSpeed * Time.deltaTime, 0, 0);
+            }
 
-        if (rb.position.y <= -1) {
-            FindObjectOfType<GameManager>().gameOver();
+            if (Input.GetKey("a"))
+            {
+                rb.AddForce(-handlingSpeed * Time.deltaTime, 0, 0);
+            }
+
+            if (rb.position.y <= -1)
+            {
+                FindObjectOfType<GameManager>().gameOver();
+            }
         }
     }
 }
