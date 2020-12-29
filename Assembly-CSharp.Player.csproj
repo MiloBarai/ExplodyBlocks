@@ -650,6 +650,7 @@
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HighScoreCount.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\ObstacleGen.cs" />
     <Compile Include="Assets\Scripts\PlayerCollition.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

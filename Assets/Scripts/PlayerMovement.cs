@@ -22,12 +22,14 @@ namespace ExplodyBlocks.Assets.Scripts
                 rb.AddForce(0, 0, (wantedSpeed - rb.velocity.z) * Time.deltaTime);
             }
 
-            if (Input.GetKey("d"))
+            InputManager inputManager = FindObjectOfType<InputManager>();
+
+            if (inputManager.getMoveRight())
             {
                 rb.AddForce(handlingSpeed * Time.deltaTime, 0, 0);
             }
 
-            if (Input.GetKey("a"))
+            if (inputManager.getMoveLeft())
             {
                 rb.AddForce(-handlingSpeed * Time.deltaTime, 0, 0);
             }
